@@ -1,6 +1,8 @@
 import {
   Component,
+  ElementRef,
   HostBinding,
+  inject,
   input,
   ViewEncapsulation,
 } from '@angular/core';
@@ -17,8 +19,10 @@ import {
 export class ControlComponent {
   // @HostBinding('class') className = 'control'; // Legacy way
   label = input.required<string>();
+  private el = inject(ElementRef);
 
   onClick() {
     console.log('Clicked!');
+    console.log(this.el);
   }
 }
